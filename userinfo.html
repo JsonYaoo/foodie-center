@@ -229,8 +229,13 @@
 						// 请求后端获得最新数据
 						var serverUrl = app.serverUrl;
 						axios.defaults.withCredentials = true;
+
+						// 单体上传路径
+						// var fileServer = serverUrl + '/userInfo/uploadFace?userId=' + userInfo.id;
+						// FastDfs上传路径
+						var fileServer = 'http://localhost:8066/fdfs/uploadFace?userId=' + userInfo.id;
 						axios.post(
-								serverUrl + '/userInfo/uploadFace?userId=' + userInfo.id, 
+                            	fileServer,
 								multiForm, 
 								{
 									headers: {
